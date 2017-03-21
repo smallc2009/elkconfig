@@ -1,0 +1,3 @@
+NGUSERNAME [a-zA-Z\.\@\-\+_%]+
+NGUSER %{NGUSERNAME}
+NGINXACCESS%{IPORHOST:clientip} - %{NGUSER:remote_user} \[%{HTTPDATE:timestamp}\]\"(?:%{WORD:verb} %{NOTSPACE:request}(?:HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})\" %{NUMBER:response}(?:%{NUMBER:bytes:float}|-) %{QS:referrer} %{QS:agent}%{NOTSPACE:http_x_forwarded_for} %{NUMBER:request_time:float}
